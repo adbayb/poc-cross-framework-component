@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "name": "preact",
+  "version": "0.0.0",
+  "license": "MIT",
+  "source": "src/index.tsx",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.mjs",
+  "scripts": {
+    "start": "scripts serve public/index.html",
+    "build": "scripts build",
+    "watch": "scripts watch",
+    "clean": "scripts clean",
+    "verify": "scripts verify",
+    "fix": "scripts fix",
+    "test": "scripts verify --only test"
+  },
+  "dependencies": {
+    "preact": "10.7.1"
+  },
+  "devDependencies": {
+    "@types/preact-custom-element": "4.0.1",
+    "preact-custom-element": "4.2.1"
+  }
+}
