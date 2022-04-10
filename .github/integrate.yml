@@ -1,0 +1,71 @@
+name: Continuous Integration
+
+on: [push, pull_request]
+
+jobs:
+  install:
+    timeout-minutes: 5
+    name: Install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: latest
+      - name: Use Node.js latest
+        uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
+  verify:
+    timeout-minutes: 5
+    needs: install
+    name: Verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: latest
+      - name: Use Node.js latest
+        uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Verify (lint, test, types)
+        run: pnpm verify
+  build:
+    timeout-minutes: 5
+    needs: install
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: latest
+      - name: Use Node.js latest
+        uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build library
+        run: pnpm build
+      - name: Build examples
+        run: |
+          # cd examples
+          # for directory in */ ; do
+          #   echo "🏗 Building $directory example..."
+          #   cd "$directory"
+          #   pnpm install && pnpm build
+          #   cd ../
+          # done

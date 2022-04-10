@@ -24,6 +24,8 @@ Following frameworks are tested:
 - [Stencil](frameworks/stencil): the size cost is quite optimal and optimized on a per component basis through a compilation step (a tiny runtime is added to manage virtual dom). In contrast to a non compiler approach (such as React, Preact), the size cost is proportional to the number of components (the more components, the more size increases)
 - [Svelte](frameworks/svelte): TODO
 
+<br>
+
 ## 🌟 Conclusion
 
 For all concerns regarding the vanilla approach, the favored approach will be to use, **for now**, a popular UI framework (such as React) to build components and create a web component adapter / a thin compatibility layer on top of React component to make it work in the web component world and let the browser register it as a custom element and used with any framework.
