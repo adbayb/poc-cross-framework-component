@@ -23,6 +23,12 @@ importers:
       '@types/preact-custom-element': 4.0.1
       preact-custom-element: 4.2.1_preact@10.7.1
 
+  frameworks/stencil:
+    specifiers:
+      '@stencil/core': 2.13.0
+    dependencies:
+      '@stencil/core': 2.13.0
+
 packages:
 
   /@adbayb/eslint-config/0.14.0_1c11022da6bee94acd53a18a58163cda:
@@ -338,6 +344,12 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
     dev: true
+
+  /@stencil/core/2.13.0:
+    resolution: {integrity: sha512-EEKHOHgYpg3/iFUKMXTZJjUayRul7sXDwNw0OGgkEOe4t7JWiibDkzUHuruvpbqEydX+z1+ez5K2bMMY76c2wA==}
+    engines: {node: '>=12.10.0', npm: '>=6.0.0'}
+    hasBin: true
+    dev: false
 
   /@tsconfig/node10/1.0.8:
     resolution: {integrity: sha512-6XFfSQmMgq0CFLY1MslA/CPUfhIL919M1rMsa5lP2P097N2Wd1sSX0tx1u4olM16fLNhtHZpRhedZJphNJqmZg==}

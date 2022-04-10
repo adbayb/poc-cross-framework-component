@@ -23,6 +23,14 @@ declare module "preact" {
 }
 
 render(
-	<wc-button onClick={() => console.log("click event")}>Click me!</wc-button>,
+	<>
+		<wc-button onClick={() => console.log("primary")}>Click me!</wc-button>
+		<wc-button
+			onClick={() => console.log("secondary")}
+			variation="secondary"
+		>
+			Click me!
+		</wc-button>
+	</>,
 	document.getElementById("root") as HTMLElement
 );
