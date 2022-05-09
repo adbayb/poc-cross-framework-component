@@ -16,7 +16,7 @@
     "test": "scripts verify --only test"
   },
   "dependencies": {
-    "preact": "10.7.1"
+    "preact": "10.7.2"
   },
   "devDependencies": {
     "@types/preact-custom-element": "4.0.1",

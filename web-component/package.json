@@ -1,5 +1,5 @@
 {
-	"name": "poc-cross-framework-component-monorepository",
+	"name": "web-component",
 	"private": true,
 	"version": "0.0.0",
 	"author": {
@@ -9,11 +9,11 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:adbayb/poc-cross-framework-component.git"
+		"url": "git@github.com:adbayb/poc-cross-framework-component.git",
+		"directory": "web-component"
 	},
 	"license": "MIT",
 	"scripts": {
-		"postinstall": "scripts setup",
 		"clean": "turbo run clean",
 		"verify": "turbo run verify",
 		"fix": "turbo run fix",
@@ -24,8 +24,8 @@
 	},
 	"devDependencies": {
 		"@adbayb/scripts": "0.14.0",
-		"turbo": "1.2.1",
-		"typescript": "4.6.3"
+		"turbo": "1.2.8",
+		"typescript": "4.6.4"
 	},
 	"prettier": "@adbayb/prettier-config",
 	"eslintConfig": {
