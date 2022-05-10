@@ -3,7 +3,6 @@ import { render } from "preact";
 import register from "preact-custom-element";
 import { Button, ButtonProps } from "./components/Button";
 
-// @note: another alternative compatible with React as well https://github.com/jahilldev/component-elements
 register(Button, "wc-button", ["children"], { shadow: true });
 
 declare global {

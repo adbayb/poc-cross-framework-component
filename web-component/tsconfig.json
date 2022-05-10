@@ -1,4 +1,0 @@
-{
-	"extends": "@adbayb/ts-config",
-	"exclude": ["**/dist/**"]
-}
