@@ -3,7 +3,7 @@ import { renderToString } from "preact-render-to-string";
 
 export const createCustomElement = <Props extends Record<string, unknown>>(
 	tagName: string,
-	Component: (props: Props) => any,
+	Component: (props: Props) => JSX.Element,
 	props: { current: Props }
 ) => {
 	if (typeof window !== "undefined" && !customElements.get(tagName)) {

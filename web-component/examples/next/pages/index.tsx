@@ -1,12 +1,35 @@
 import type { NextPage } from "next";
-import {
-	Button,
-	ButtonProps,
-	createCustomElement,
-} from "@web-component/components";
-import { FunctionComponent, useEffect, useMemo, useState } from "react";
+import { Button, ButtonProps } from "@web-component/components";
+import { useEffect, useState } from "react";
 
-const createReactCustomElement = <Props extends Record<string, unknown>>(
+const Home: NextPage = () => {
+	const [variation, setVariation] =
+		useState<NonNullable<ButtonProps["variation"]>>("primary");
+
+	useEffect(() => {
+		const intervalId = setInterval(() => {
+			setVariation(variation === "primary" ? "secondary" : "primary");
+		}, 1000);
+
+		return () => {
+			clearInterval(intervalId);
+		};
+	}, [variation]);
+
+	return (
+		<Button
+			variation={variation}
+			onPress={() => console.log("click")}
+		>
+			{variation}
+		</Button>
+	);
+};
+
+/*
+// An example of React HOC to create component with the `createCustomElement` adapter.
+// For showcasing purpose only: it's uneeded since `@web-component/components` library is built with React.
+const createComponent = <Props extends Record<string, unknown>>(
 	Component: FunctionComponent,
 	tagName: string
 ) => {
@@ -34,31 +57,6 @@ const createReactCustomElement = <Props extends Record<string, unknown>>(
 		);
 	};
 };
-
-const ReactButton = createReactCustomElement(Button, "wc-button");
-
-const Home: NextPage = () => {
-	const [variation, setVariation] =
-		useState<NonNullable<ButtonProps["variation"]>>("primary");
-
-	useEffect(() => {
-		const intervalId = setInterval(() => {
-			setVariation(variation === "primary" ? "secondary" : "primary");
-		}, 2000);
-
-		return () => {
-			clearInterval(intervalId);
-		};
-	}, [variation]);
-
-	return (
-		<ReactButton
-			variation={variation}
-			onPress={() => console.log("press")}
-		>
-			{variation}
-		</ReactButton>
-	);
-};
+*/
 
 export default Home;

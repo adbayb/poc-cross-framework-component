@@ -31,6 +31,14 @@ Following constraints define what we mean by cross framework component. They mus
 
 <br>
 
+## TODO
+
+- [ ] Architecture diagrams for all experimentations
+- [ ] Primitive implementation
+- [ ] Benchmark web-component integration vs vanilla react vs vanilla shadow dom
+
+<br>
+
 ## 📕 Resources
 
 *Empty*

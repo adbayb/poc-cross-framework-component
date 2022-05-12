@@ -6,13 +6,13 @@
 
 <script lang="ts">
 import { onMounted } from "vue"
-import Button from "./components/Button"
+import { Button } from "@web-component/vue"
 
 export default {
   components: { Button },
   data() {
     return {
-      variation: "secondary"
+      variation: "primary"
     }
   }, 
   mounted() {

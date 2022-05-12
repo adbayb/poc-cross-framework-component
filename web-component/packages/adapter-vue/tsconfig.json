@@ -1,0 +1,9 @@
+{
+	"extends": "@adbayb/ts-config",
+	"compilerOptions": {
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"target": "ES2015"
+	},
+	"include": ["src/**/*"]
+}

@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "nuxt": "3.0.0-rc.3",
-    "@web-component/adapter": "workspace:*"
+    "@web-component/vue": "workspace:*"
   }
 }
