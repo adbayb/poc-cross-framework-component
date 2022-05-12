@@ -1,5 +1,5 @@
 import { defineComponent, h } from "vue";
-import { Button, createCustomElement } from "@web-component/components";
+import { Button, createCustomElement } from "@web-component/adapter";
 
 // @todo: transform it to generic adapter
 // { components: { VueButton: createVueComponent(Button) } }

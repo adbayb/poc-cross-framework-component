@@ -20,6 +20,17 @@ All experimentations must be framework agnostic.
 
 <br>
 
+## ✅ Constraints
+
+Following constraints define what we mean by cross framework component. They must be ticked by each experimentation:
+
+- Consistent API across frameworks
+- Shared core logic (accessibility, state, styling...)
+- Encapsulation (scoped styling)
+- SSR friendly
+
+<br>
+
 ## 📕 Resources
 
 *Empty*

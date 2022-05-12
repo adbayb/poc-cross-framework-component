@@ -2,6 +2,8 @@
 	"extends": "@adbayb/ts-config",
 	"compilerOptions": {
 		"jsx": "react-jsx",
+		"jsxFactory": "",
+		"jsxFragmentFactory": "",
 		"moduleResolution": "node",
 		"esModuleInterop": true,
 		"target": "ES2015"

@@ -1,11 +1,10 @@
 import { render } from "preact";
-import type { FunctionalComponent } from "preact";
 import { renderToString } from "preact-render-to-string";
 
-export const createCustomElement = (
+export const createCustomElement = <Props extends Record<string, unknown>>(
 	tagName: string,
-	Component: FunctionalComponent,
-	props: { current: Record<string, unknown> }
+	Component: (props: Props) => any,
+	props: { current: Props }
 ) => {
 	if (typeof window !== "undefined" && !customElements.get(tagName)) {
 		class WebComponentWrapper extends HTMLElement {
