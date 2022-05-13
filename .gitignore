@@ -106,3 +106,4 @@ dist
 # Project specific files
 www
 loader
+.rollup.cache
