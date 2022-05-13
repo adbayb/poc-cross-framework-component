@@ -7,6 +7,15 @@
 <br>
 
 ```ts
+// Framework-agnostic building blocks: Primitives
+createComponent (parameter: functional component) // → responsibilities: manage component creation specificity (including ref management)
+createElement (tagName | ComponentConstructor, parameter: JSX pragma) // → responsibilities: manage core logic across elements (tokens management, platform specificities, responsive attribute mapping, style API...)
+createHandler (parameter: { useState, useEffect, useMemo, useCallback, useContext }) // → responsibilities: manage stateful logic and, as output, map public props API to allowed createElement props
+```
+
+Previous draft: 
+
+```ts
 // Low level primitives without internal state management
 // @note: process either html or react-native attributes
 // No state management -> pure mapper function framework-agnostic which reacts to input change

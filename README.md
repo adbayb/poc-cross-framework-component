@@ -9,7 +9,6 @@
 ## 🤔 Motivation
 
 This repository aims to experiment several approaches to foster cross framework component usage.
-All experimentations must be framework agnostic.
 
 <br>
 
@@ -22,19 +21,21 @@ All experimentations must be framework agnostic.
 
 ## ✅ Constraints
 
-Following constraints define what we mean by cross framework component. They must be ticked by each experimentation:
+Each experimentation must tick following constraints:
 
 - Consistent API across frameworks
-- Shared core logic (accessibility, state, styling...)
-- Encapsulation (scoped styling)
+- Shared core logic (accessibility, state, styling, ...)
 - SSR friendly
+- Encapsulation (style isolation)
+- Developer experience
 
 <br>
 
 ## TODO
 
 - [ ] Architecture diagrams for all experimentations
-- [ ] Primitive implementation
+- [ ] Add primitive implementation
+- [ ] Add shim-react implementation
 - [ ] Benchmark web-component integration vs vanilla react vs vanilla shadow dom
 
 <br>

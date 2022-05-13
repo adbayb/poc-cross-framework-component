@@ -1,9 +1,0 @@
-{
-	"extends": "../../../tsconfig.json",
-	"compilerOptions": {
-		"jsx": "react-jsx",
-		"jsxImportSource": "preact",
-		"moduleResolution": "node"
-	},
-	"include": ["src/**/*"]
-}

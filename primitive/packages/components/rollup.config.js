@@ -1,8 +1,7 @@
 /* eslint-disable import/no-default-export, import/namespace */
 import typescript from "@rollup/plugin-typescript";
 import nodeResolve from "@rollup/plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
-import external from "rollup-plugin-peer-deps-external";
+import commonjs from "@rollup/plugin-commonjs";
 import filesize from "rollup-plugin-filesize";
 import pkg from "./package.json";
 
@@ -47,10 +46,16 @@ const createConfig = (target = "react") => {
 	return {
 		input: pkg.source,
 		output,
+		external: [
+			...Object.keys(pkg.optionalDependencies),
+			...Object.keys(pkg.devDependencies),
+		],
 		plugins: [
-			external({ includeDependencies: true }),
 			nodeResolve({ extensions }),
-			typescript(),
+			typescript({
+				tsconfig: "./tsconfig.json",
+				outputToFilesystem: true,
+			}),
 			commonjs(),
 			!isDev && filesize(),
 		].filter(Boolean),
