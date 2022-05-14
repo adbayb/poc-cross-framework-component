@@ -33,10 +33,11 @@ Each experimentation must tick following constraints:
 
 ## TODO
 
-- [ ] Architecture diagrams for all experimentations
-- [ ] Add primitive implementation
-- [ ] Add shim-react implementation
-- [ ] Benchmark web-component integration vs vanilla react vs vanilla shadow dom
+- [ ] General: Architecture diagrams for all experimentations
+- [ ] General: Add primitive implementation
+- [ ] General: Add shim-react implementation
+- [ ] General: Add pros/cons section for all experimentations (when to use X experimentation instead of Y => shim can be a good match if there's an existing codebase and/or the library relies on core libraries that are framework dependent (such as react-aria for a11y requirements))
+- [ ] Web-component: Benchmark web-component integration vs vanilla react vs vanilla shadow dom
 
 <br>
 
