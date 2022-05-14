@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <Button :defaultIsWhite="defaultIsWhite">Hello world</Button>
+  <div style="display: flex; gap: 8px;">
+    <Button :variation="variation">Hello world</Button>
+    <button @click="onPress">Toggle property</button>
   </div>
 </template>
 
@@ -13,17 +14,11 @@ export default {
   data() {
     return {
       variation: "primary",
-      defaultIsWhite: true,
     }
   }, 
-  mounted() {
-    setInterval(() => {
-      this.variation = this.variation === "primary" ? "secondary" : "primary"
-    }, 1000)
-  },
   methods: {
-    onPress: () => {
-      console.log("click")
+    onPress() {
+      this.variation = this.variation === "primary" ? "secondary" : "primary"
     }
   }
 }

@@ -3,7 +3,7 @@ import { createElement } from "../primitives/createElement";
 import { createHandler } from "../primitives/createHandler";
 
 export type ButtonProps = {
-	defaultIsWhite: boolean;
+	variation: "primary" | "secondary";
 	children: string;
 };
 
@@ -14,17 +14,21 @@ export const Button = createComponent<ButtonProps>((props) => {
 });
 
 const useButtonHandler = createHandler<Partial<ButtonProps>>((props, hooks) => {
-	const [isWhite, setIsWhite] = hooks.useState(props.defaultIsWhite);
+	const [variation, setVariation] = hooks.useState(props.variation);
+
+	hooks.useEffect(() => {
+		setVariation(props.variation);
+	}, [props.variation]);
 
 	hooks.useEffect(() => {
 		const intervalId = setInterval(() => {
-			setIsWhite(!isWhite);
+			setVariation(variation === "primary" ? "secondary" : "primary");
 		}, 1000);
 
 		return () => clearInterval(intervalId);
-	}, [isWhite]);
+	}, [variation]);
 
 	return {
-		backgroundColor: isWhite ? "white" : "navy",
+		backgroundColor: variation === "primary" ? "white" : "navy",
 	};
 });

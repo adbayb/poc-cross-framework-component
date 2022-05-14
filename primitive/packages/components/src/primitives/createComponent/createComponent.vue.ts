@@ -3,11 +3,12 @@ import { CreateComponent } from "./common";
 
 export const createComponent: CreateComponent = (component) => {
 	return defineComponent({
-		setup(props, ctx) {
-			return () => {
+		inheritAttrs: false,
+		setup(_, ctx) {
+			return (instance: { $attrs: Record<string, unknown> }) => {
 				// @ts-expect-error fix incompatibility
 				return component({
-					...props,
+					...instance.$attrs,
 					children: ctx.slots.default?.(),
 				});
 			};
