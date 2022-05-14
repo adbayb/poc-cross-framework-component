@@ -1,11 +1,16 @@
 import { render } from "react-dom";
-// @ts-expect-error fixed in next TS beta https://devblogs.microsoft.com/typescript/announcing-typescript-4-7-beta/#package-json-exports-imports-and-self-referencing
-import test from "@primitive/components/vue";
-
-console.log(test);
+import { renderToString } from "react-dom/server";
+import { Button } from "@primitive/components";
 
 const App = () => {
-	return <p>Hello world</p>;
+	return (
+		<div>
+			{/* @ts-expect-error to fix */}
+			<Button defaultIsWhite>Hello world</Button>
+		</div>
+	);
 };
+
+console.log(renderToString(<App />));
 
 render(<App />, document.getElementById("root"));

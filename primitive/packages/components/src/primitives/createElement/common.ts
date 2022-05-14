@@ -2,20 +2,25 @@ type ColorToken = "transparent" | "white" | "black" | "navy";
 
 export interface ElementProps {
 	backgroundColor?: ColorToken;
+	children?: string | number | boolean | null | undefined;
 }
 
 export type Element = unknown;
 
 export type CreateElement = (tagName: string, props: ElementProps) => Element;
 
-export const mapElementPropsToPlatformAttributes = (props: ElementProps) => {
-	let backgroundColor: string = props.backgroundColor;
+export const mapElementPropsToPlatformAttributes = ({
+	backgroundColor,
+	children,
+}: ElementProps) => {
+	let mappedBackgroundColor: string | undefined = backgroundColor;
 
 	if (backgroundColor === "navy") {
-		backgroundColor = "rgb(0, 0, 128)";
+		mappedBackgroundColor = "rgb(0, 0, 128)";
 	}
 
 	return {
-		backgroundColor,
+		children,
+		style: { backgroundColor: mappedBackgroundColor },
 	};
 };
