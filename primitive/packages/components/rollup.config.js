@@ -25,7 +25,7 @@ const createConfig = (target = "react") => {
 		case "vue":
 			output = {
 				file: pkg["exports"]["./vue"]["import"]["default"],
-				format: "cjs",
+				format: "es",
 				sourcemap: isDev,
 			};
 			extensions = getExtensions([".vue"]);
@@ -35,7 +35,7 @@ const createConfig = (target = "react") => {
 		default:
 			output = {
 				file: pkg["exports"]["."]["import"]["default"],
-				format: "cjs",
+				format: "es",
 				sourcemap: isDev,
 			};
 			extensions = getExtensions();

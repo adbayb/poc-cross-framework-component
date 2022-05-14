@@ -13,13 +13,14 @@ export const createComponent = <Props extends Record<string, unknown>>(
 			const mapPropsToOutsideContract = () => {
 				return {
 					...props,
-					children: ctx.slots.default?.()[0]?.children as string,
+					// @note: should be improved to allow non primitive children (eg. "String content <span>Other fragment</span>") (slot usage instead?)
+					children: ctx.slots.default?.().map((node) => node.children),
 				};
 			};
 			const mappedProps = reactive({
 				current: mapPropsToOutsideContract(),
 			});
-			// @ts-expect-error props incompatibility to fix
+			// @ts-expect-error deep evaluation to fix
 			const content = createCustomElement(tagName, Component, mappedProps);
 
 			onBeforeUpdate(() => {

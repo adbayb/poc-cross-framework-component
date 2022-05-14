@@ -12,6 +12,16 @@ All approaches are based on web component standard as a thin interoperability la
 
 <br>
 
+## 🚀 Quickstart
+
+```bash
+# hoisting necessary to make Nuxt and preact/compat example works 
+pnpm install --shamefully-hoist
+pnpm start
+```
+
+<br>
+
 ## 🌟 Architecture
 
 A web component adapter is built on top of Preact component to make it work in the web component world and let the browser register it as a custom element and used with any framework.
@@ -21,7 +31,7 @@ A similar approach is fostered by the Angular community with [@angular/elements 
 
 ## 🙋‍♂️ Questions
 
-#### Why using a framework underneath?
+### Why using a framework underneath?
 
 Using only the standard web component API is optimal when we refer to the size constraint (no framework runtime) but the barrier of entry can be too high. Indeed, the vanilla approach is more verbose, with a lack of huge ecosystem (if we compare with popular UI frameworks) and all design constraints need to be managed in a custom way with some (painful) challenges (such as [server side rendering](https://dev.to/steveblue/server-side-rendering-web-components-320g), [SEO](https://leofavre.github.io/web-components-seo/), state management...
 
@@ -33,7 +43,9 @@ One of the challenge is to choose one that achieves the best trade-off regarding
 
 For React developers, Preact with `@preact/compat` seems to be the right trade-off to manage web component compatibility layer while providing **a tiny runtime** and **preserving the same good developer experience**.
 
-#### Why not using shadow DOM to create self-contained / encapsulate web component?
+> For a deeper look at bundle size and rendering performance benchmarks for multiple framework integration, a great ressource can be found [here](https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/#bundle-size). 
+
+### Why not using shadow DOM to create self-contained / encapsulate web component?
 
 No shadow dom API has been used, we rely on a light dom to fulfill [our defined constraints](../README.md) (including SSR). 
 **TODO**

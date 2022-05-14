@@ -1,11 +1,13 @@
 type ColorToken = "transparent" | "white" | "black" | "navy";
 
+type FrameworkDependentValue = any;
+
 export interface ElementProps {
 	backgroundColor?: ColorToken;
-	children?: string | number | boolean | null | undefined;
+	children?: FrameworkDependentValue;
 }
 
-export type Element = unknown;
+export type Element = FrameworkDependentValue;
 
 export type CreateElement = (tagName: string, props: ElementProps) => Element;
 

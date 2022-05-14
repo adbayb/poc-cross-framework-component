@@ -1,18 +1,19 @@
 <template>
   <div>
-    Hello world
+    <Button :defaultIsWhite="defaultIsWhite">Hello world</Button>
   </div>
 </template>
 
 <script lang="ts">
 import { onMounted } from "vue"
-// import { Button } from "@web-component/vue"
+import { Button } from "@primitive/components/vue"
 
 export default {
-  // components: { Button },
+  components: { Button },
   data() {
     return {
-      variation: "primary"
+      variation: "primary",
+      defaultIsWhite: true,
     }
   }, 
   mounted() {

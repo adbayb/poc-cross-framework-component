@@ -3,10 +3,13 @@ import { CreateComponent } from "./common";
 
 export const createComponent: CreateComponent = (component) => {
 	return defineComponent({
-		setup(props) {
+		setup(props, ctx) {
 			return () => {
 				// @ts-expect-error fix incompatibility
-				component(props);
+				return component({
+					...props,
+					children: ctx.slots.default?.(),
+				});
 			};
 		},
 	}) as unknown as typeof component;
