@@ -1,9 +1,12 @@
-import { ReactElement, createElement as createReactElement } from "react";
-import { CreateElementFunction } from "./common";
+import { useEffect, useMemo, useState } from "react";
+import { CreateHandler } from "./common";
 
-export const createElement: CreateElementFunction<ReactElement> = (
-	tagName,
-	props
-) => {
-	return createReactElement(tagName, props);
+export const createHandler: CreateHandler = (handler) => {
+	return (props) => {
+		return handler(props, {
+			useEffect,
+			useMemo,
+			useState,
+		});
+	};
 };

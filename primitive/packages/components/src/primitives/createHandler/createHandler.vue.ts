@@ -1,6 +1,16 @@
-import { type VNode, h } from "vue";
-import { CreateElementFunction } from "./common";
+import { CreateHandler } from "./common";
 
-export const createElement: CreateElementFunction<VNode> = (tagName, props) => {
-	return h(tagName, props);
+export const createHandler: CreateHandler = (handler) => {
+	return (props) => {
+		return handler(props, {
+			// @todo
+			useEffect() {},
+			useMemo(factory) {
+				return factory();
+			},
+			useState(value) {
+				return [value, () => {}];
+			},
+		});
+	};
 };

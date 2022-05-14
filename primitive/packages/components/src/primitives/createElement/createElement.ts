@@ -1,9 +1,9 @@
-import { ReactElement, createElement as createReactElement } from "react";
-import { CreateElementFunction } from "./common";
+import { createElement as createReactElement } from "react";
+import { CreateElement, mapElementPropsToPlatformAttributes } from "./common";
 
-export const createElement: CreateElementFunction<ReactElement> = (
-	tagName,
-	props
-) => {
-	return createReactElement(tagName, props);
+export const createElement: CreateElement = (tagName, props) => {
+	return createReactElement(
+		tagName,
+		mapElementPropsToPlatformAttributes(props)
+	);
 };

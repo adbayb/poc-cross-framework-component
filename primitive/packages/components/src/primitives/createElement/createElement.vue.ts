@@ -1,6 +1,6 @@
-import { type VNode, h } from "vue";
-import { CreateElementFunction } from "./common";
+import { h } from "vue";
+import { CreateElement, mapElementPropsToPlatformAttributes } from "./common";
 
-export const createElement: CreateElementFunction<VNode> = (tagName, props) => {
-	return h(tagName, props);
+export const createElement: CreateElement = (tagName, props) => {
+	return h(tagName, mapElementPropsToPlatformAttributes(props));
 };

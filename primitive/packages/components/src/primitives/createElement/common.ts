@@ -1,16 +1,21 @@
 type ColorToken = "transparent" | "white" | "black" | "navy";
 
-interface Props {
+export interface ElementProps {
 	backgroundColor?: ColorToken;
 }
 
-export type CreateElementFunction<Element> = (
-	tagName: string,
-	props: Props
-) => Element;
+export type Element = unknown;
 
-export const mapBackgroundColorPropsToAttributes = (backgroundColor: Props) => {
-	if (backgroundColor === "navy") return "rgb(0, 0, 128)";
+export type CreateElement = (tagName: string, props: ElementProps) => Element;
 
-	return backgroundColor;
+export const mapElementPropsToPlatformAttributes = (props: ElementProps) => {
+	let backgroundColor: string = props.backgroundColor;
+
+	if (backgroundColor === "navy") {
+		backgroundColor = "rgb(0, 0, 128)";
+	}
+
+	return {
+		backgroundColor,
+	};
 };

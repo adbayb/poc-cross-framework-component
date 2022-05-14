@@ -37,7 +37,6 @@ importers:
       react: ^16.14.0 || ^17.0.0 || ^18.0.0
       rollup: 2.72.1
       rollup-plugin-filesize: 9.1.2
-      rollup-plugin-peer-deps-external: 2.2.4
       tslib: ^2.4.0
       typescript: 4.7.0-beta
       vue: ^3.0.0
@@ -50,7 +49,6 @@ importers:
       '@rollup/plugin-typescript': 8.3.2_ocz7kknvvr3a2nkv6dt35r7adq
       rollup: 2.72.1
       rollup-plugin-filesize: 9.1.2
-      rollup-plugin-peer-deps-external: 2.2.4_rollup@2.72.1
       tslib: 2.4.0
       typescript: 4.7.0-beta
 
@@ -4000,14 +3998,6 @@ packages:
     transitivePeerDependencies:
       - bluebird
       - supports-color
-    dev: true
-
-  /rollup-plugin-peer-deps-external/2.2.4_rollup@2.72.1:
-    resolution: {integrity: sha512-AWdukIM1+k5JDdAqV/Cxd+nejvno2FVLVeZ74NKggm3Q5s9cbbcOgUPGdbxPi4BXu7xGaZ8HG12F+thImYu/0g==}
-    peerDependencies:
-      rollup: '*'
-    dependencies:
-      rollup: 2.72.1
     dev: true
 
   /rollup/2.72.1:
