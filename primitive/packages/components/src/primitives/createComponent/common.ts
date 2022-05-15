@@ -4,6 +4,10 @@ type Component<Props extends Record<string, unknown>> = (
 	props: Props
 ) => Element;
 
+type ComponentFactory<Props extends Record<string, unknown>> = (
+	props: Props
+) => () => Element;
+
 /**
  * Creates a framework agnostic component
  *
@@ -13,7 +17,7 @@ type Component<Props extends Record<string, unknown>> = (
  * }
  *
  * const Button = createComponent<ButtonProps>((props) => {
- * 	return createElement("button", {
+ * 	return () => createElement("button", {
  * 	  onClick: onPress,
  * 	})
  * })
@@ -25,5 +29,5 @@ type Component<Props extends Record<string, unknown>> = (
  * })
  */
 export type CreateComponent = <Props extends Record<string, unknown>>(
-	component: Component<Props>
+	factory: ComponentFactory<Props>
 ) => Component<Props>;

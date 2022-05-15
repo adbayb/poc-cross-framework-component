@@ -8,9 +8,12 @@ export type ButtonProps = {
 };
 
 export const Button = createComponent<ButtonProps>((props) => {
+	// @note: handlers must be called before the render function (ie. () => createElement(XXX))
+	// to make them work properly whatever the framework (Vue needs to initialize its hooks outside the render function)
+	// That's why the `createComponent` imposes a render function as return value instead of a `createElement` return value.
 	const elementProps = useButtonHandler(props);
 
-	return createElement("button", { ...props, ...elementProps });
+	return () => createElement("button", { ...props, ...elementProps });
 });
 
 const useButtonHandler = createHandler<Partial<ButtonProps>>((props, hooks) => {
