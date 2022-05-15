@@ -1,11 +1,13 @@
 import { ElementProps } from "../createElement/common";
 
-type Handler<Props extends Record<string, unknown>> = (
+export type ReactiveValue<Value> = { value: Value };
+
+type HandlerFactory<Props extends Record<string, unknown>> = (
 	props: Props,
 	hooks: {
 		useState: <Value>(
 			initialValue: Value
-		) => [value: Value, setValue: (nextValue: Value) => void];
+		) => [value: ReactiveValue<Value>, setValue: (nextValue: Value) => void];
 		useMemo: <Value>(
 			factory: () => Value,
 			dependencyCollection: ReadonlyArray<unknown>
@@ -15,11 +17,11 @@ type Handler<Props extends Record<string, unknown>> = (
 			dependencyCollection: ReadonlyArray<unknown>
 		) => void;
 	}
-) => ElementProps;
+) => () => ElementProps;
 
 type UseHandler<Props extends Record<string, unknown>> = (
 	props: Props
-) => ElementProps;
+) => () => ElementProps;
 
 /**
  * Creates a framework agnostic handler (to manage stateful logic / hook like)
@@ -29,7 +31,7 @@ type UseHandler<Props extends Record<string, unknown>> = (
  * 	isBlack: boolean
  * };
  *
- * const useButtonHandler = createHandler<ButtonHandlerProps>((props, hooks) => {
+ * const useButton = createHandler<ButtonHandlerProps>((props, hooks) => {
  * 	const [isBlack, setIsBlack] = hooks.useState(props.isBlack);
  *
  *	hooks.useEffect(() => {
@@ -38,10 +40,10 @@ type UseHandler<Props extends Record<string, unknown>> = (
  *	}, [isBlack])
  *
  * 	return { backgroundColor: isBlack ? "black" : "navy" };
- * })
+ * })()
  *
- * const elementProps = useButtonHandler({ isBlack: false })
+ * const elementProps = useButton({ isBlack: false })
  */
 export type CreateHandler = <Props extends Record<string, unknown>>(
-	handler: Handler<Props>
+	handler: HandlerFactory<Props>
 ) => UseHandler<Props>;

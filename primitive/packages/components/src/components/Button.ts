@@ -11,27 +11,35 @@ export const Button = createComponent<ButtonProps>((props) => {
 	// @note: handlers must be called before the render function (ie. () => createElement(XXX))
 	// to make them work properly whatever the framework (Vue needs to initialize its hooks outside the render function)
 	// That's why the `createComponent` imposes a render function as return value instead of a `createElement` return value.
-	const elementProps = useButtonHandler(props);
+	const useButton = createButtonHandler(props);
 
-	return () => createElement("button", { ...props, ...elementProps });
-});
+	return () => {
+		const elementProps = useButton();
 
-const useButtonHandler = createHandler<Partial<ButtonProps>>((props, hooks) => {
-	const [variation, setVariation] = hooks.useState(props.variation);
-
-	hooks.useEffect(() => {
-		setVariation(props.variation);
-	}, [props.variation]);
-
-	hooks.useEffect(() => {
-		const intervalId = setInterval(() => {
-			setVariation(variation === "primary" ? "secondary" : "primary");
-		}, 1000);
-
-		return () => clearInterval(intervalId);
-	}, [variation]);
-
-	return {
-		backgroundColor: variation === "primary" ? "white" : "navy",
+		return createElement("button", { ...props, ...elementProps });
 	};
 });
+
+const createButtonHandler = createHandler<Partial<ButtonProps>>(
+	(props, hooks) => {
+		const [variation, setVariation] = hooks.useState(props.variation);
+
+		hooks.useEffect(() => {
+			setVariation(props.variation);
+		}, [props.variation]);
+
+		hooks.useEffect(() => {
+			const intervalId = setInterval(() => {
+				setVariation(variation.value === "primary" ? "secondary" : "primary");
+			}, 1000);
+
+			return () => clearInterval(intervalId);
+		}, [variation]);
+
+		return () => {
+			return {
+				backgroundColor: variation.value === "primary" ? "white" : "navy",
+			};
+		};
+	}
+);

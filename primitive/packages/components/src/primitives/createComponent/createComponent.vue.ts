@@ -1,12 +1,12 @@
 import { defineComponent } from "vue";
 import { CreateComponent } from "./common";
 
-export const createComponent: CreateComponent = (component) => {
+export const createComponent: CreateComponent = (factory) => {
 	return defineComponent({
 		inheritAttrs: false,
 		setup(_, ctx) {
 			// @ts-expect-error fix incompatibility
-			const render = component({
+			const render = factory({
 				...ctx.attrs,
 				children: ctx.slots.default?.(),
 			});
@@ -15,5 +15,5 @@ export const createComponent: CreateComponent = (component) => {
 				return render();
 			};
 		},
-	}) as unknown as typeof component;
+	}) as unknown as ReturnType<CreateComponent>;
 };

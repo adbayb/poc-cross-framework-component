@@ -6,7 +6,20 @@ export const createHandler: CreateHandler = (handler) => {
 		return handler(props, {
 			useEffect,
 			useMemo,
-			useState,
+			useState(initialValue) {
+				type Value = typeof initialValue;
+
+				const [state, setState] = useState({
+					value: initialValue,
+				});
+
+				return [
+					state,
+					(nextValue: Value) => {
+						setState({ value: nextValue });
+					},
+				];
+			},
 		});
 	};
 };
