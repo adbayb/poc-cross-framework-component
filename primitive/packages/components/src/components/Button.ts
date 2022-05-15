@@ -25,6 +25,7 @@ const createButtonHandler = createHandler<Partial<ButtonProps>>(
 		const [variation, setVariation] = hooks.useState(props.variation);
 
 		hooks.useEffect(() => {
+			console.log("Updated props", props);
 			setVariation(props.variation);
 		}, [props.variation]);
 

@@ -13,7 +13,7 @@ type HandlerFactory<Props extends Record<string, unknown>> = (
 			dependencyCollection: ReadonlyArray<unknown>
 		) => Value;
 		useEffect: (
-			callback: () => void,
+			callback: () => void | (() => void),
 			dependencyCollection: ReadonlyArray<unknown>
 		) => void;
 	}

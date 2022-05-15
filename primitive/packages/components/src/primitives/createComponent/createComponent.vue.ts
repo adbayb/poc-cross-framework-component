@@ -5,11 +5,9 @@ export const createComponent: CreateComponent = (factory) => {
 	return defineComponent({
 		inheritAttrs: false,
 		setup(_, ctx) {
+			const props = { ...ctx.attrs, children: ctx.slots.default?.() };
 			// @ts-expect-error fix incompatibility
-			const render = factory({
-				...ctx.attrs,
-				children: ctx.slots.default?.(),
-			});
+			const render = factory(props);
 
 			return () => {
 				return render();
