@@ -8,7 +8,7 @@
 
 ## 🤔 Motivation
 
-This repository aims to experiment several approaches to foster cross framework component usage.
+This repository aims to experiment several approaches to implement cross framework components.
 
 <br>
 

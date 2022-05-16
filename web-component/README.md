@@ -6,12 +6,6 @@
 <br>
 <br>
 
-## 🤔 Motivation
-
-All approaches are based on web component standard as a thin interoperability layer to create custom elements that can be used anywhere without being tied to a specific framework.
-
-<br>
-
 ## 🚀 Quickstart
 
 ```bash
@@ -24,8 +18,10 @@ pnpm start
 
 ## 🌟 Architecture
 
-A web component adapter is built on top of Preact component to make it work in the web component world and let the browser register it as a custom element and used with any framework.
+The approach relies on a web component adapter acting as a thin interoperability layer to create custom elements. It can be used anywhere without being tied to a specific framework.
 A similar approach is fostered by the Angular community with [@angular/elements package](https://angular.io/guide/elements):
+
+TODO
 
 <br>
 

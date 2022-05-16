@@ -24,7 +24,8 @@ type UseHandler<Props extends Record<string, unknown>> = (
 ) => () => ElementProps;
 
 /**
- * Creates a framework agnostic handler (to manage stateful logic / hook like)
+ * Creates a framework agnostic handler (React hook like).
+ * Responsibility: manage stateful logic and output mapped Element properties.
  *
  * @example
  * type ButtonHandlerProps = {
@@ -39,7 +40,7 @@ type UseHandler<Props extends Record<string, unknown>> = (
  *		return () => clearInterval(intervalId);
  *	}, [isBlack])
  *
- * 	return { backgroundColor: isBlack ? "black" : "navy" };
+ * 	return () => ({ backgroundColor: isBlack ? "black" : "navy" });
  * })()
  *
  * const elementProps = useButton({ isBlack: false })
