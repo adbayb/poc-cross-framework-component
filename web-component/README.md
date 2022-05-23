@@ -21,7 +21,7 @@ pnpm start
 The approach relies on a web component adapter acting as a thin interoperability layer to create custom elements. It can be used anywhere without being tied to a specific framework.
 A similar approach is fostered by the Angular community with [@angular/elements package](https://angular.io/guide/elements):
 
-TODO
+![Wrapper architecture](https://user-images.githubusercontent.com/10498826/169863424-801689e1-fddf-4743-b973-ab79a4753595.png)
 
 <br>
 
