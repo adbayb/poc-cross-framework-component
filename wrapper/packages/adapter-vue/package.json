@@ -1,5 +1,5 @@
 {
-	"name": "@web-component/vue",
+	"name": "@wrapper/vue",
 	"private": true,
 	"version": "0.0.0",
 	"license": "MIT",
@@ -20,7 +20,7 @@
         "vue": "^3.0.0"
     },
     "dependencies": {
-		"@web-component/adapter": "workspace:*"
+		"@wrapper/adapter": "workspace:*"
     },
 	"devDependencies": {
         "vue": "3.2.33",

@@ -30,7 +30,7 @@ Two approaches have been tested:
 
 - [Wrapper](wrapper): packages existing framework dependent components with a thin interoperability layer to create framework agnostic components consumable by any frontend stack. This layer acts as [a decorator](https://refactoring.guru/design-patterns/decorator) to generate standard custom elements with added superpowers (eg. adding server side rendering support by letting the underlying framework manages it). 
 This approach can be interesting to explore if we need to deal with the existing (ie. already developped components) or if the team wants to use (for developer experience concerns...) a specific UI framework.
-- [Primitive](primitive): is framework agnostic low-level building block to build high-level components without dealing with framework specificities. Each primitive acts as [an adapter](https://refactoring.guru/design-patterns/adapter) to hide/abstract framework dependent logic.
+- [Primitive](primitive): framework agnostic low-level building blocks. They allow to build high-level components without dealing with framework specificities. Each primitive acts as [an adapter](https://refactoring.guru/design-patterns/adapter) to plug framework dependent logic.
 This approach can be interesting to explore if constraints must be supported in an optimal way consumer side (eg. no extra size footprint...).
 
 Others have also been considered but are not suited to our defined constraints:

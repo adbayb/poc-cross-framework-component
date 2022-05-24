@@ -19,7 +19,8 @@ pnpm start
 ## 🌟 Architecture
 
 Primitives are framework agnostic building blocks that hide framework implementation complexity.  
-Each primitive acts as an adapter to manage framework dependent logic:
+They allow to build high-level components without dealing with framework specificities.  
+Each primitive acts as [an adapter](https://refactoring.guru/design-patterns/adapter) to plug framework dependent logic:
 
 ![Primitive architecture](https://user-images.githubusercontent.com/10498826/169863417-5217bf14-f408-45fe-8012-e13aeed6aa6a.png)
 

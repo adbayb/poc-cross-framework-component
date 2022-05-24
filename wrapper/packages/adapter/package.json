@@ -1,5 +1,5 @@
 {
-	"name": "@web-component/adapter",
+	"name": "@wrapper/adapter",
 	"private": true,
 	"version": "0.0.0",
 	"license": "MIT",
@@ -17,7 +17,7 @@
 		"test": "scripts verify --only test"
 	},
 	"devDependencies": {
-		"@web-component/components": "workspace:*",
+		"@wrapper/components": "workspace:*",
 		"microbundle": "0.15.0",
 		"preact": "10.7.2",
 		"preact-render-to-string": "5.2.0",

@@ -1,7 +1,7 @@
 <br>
 <div align="center">
-    <h1>🧪 With web components</h1>
-    <strong>Experiment cross framework component implementation on top of Web components standard</strong>
+    <h1>🧪 With wrapper</h1>
+    <strong>Experiment cross framework component implementation by wrapping framework dependent components</strong>
 </div>
 <br>
 <br>
@@ -18,7 +18,7 @@ pnpm start
 
 ## 🌟 Architecture
 
-The approach relies on a web component adapter acting as a thin interoperability layer to create custom elements. It can be used anywhere without being tied to a specific framework.
+The approach packages existing framework dependent components with a thin interoperability layer to create framework agnostic components consumable by any frontend stack. This layer acts as [a decorator](https://refactoring.guru/design-patterns/decorator) to generate standard custom elements with added superpowers (eg. adding server side rendering support by letting the underlying framework manages it).  
 A similar approach is fostered by the Angular community with [@angular/elements package](https://angular.io/guide/elements):
 
 ![Wrapper architecture](https://user-images.githubusercontent.com/10498826/169863424-801689e1-fddf-4743-b973-ab79a4753595.png)
@@ -41,7 +41,11 @@ For React developers, Preact with `@preact/compat` seems to be the right trade-o
 
 > For a deeper look at bundle size and rendering performance benchmarks for multiple framework integration, a great ressource can be found [here](https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/#bundle-size). 
 
-### Why not using shadow DOM to create self-contained / encapsulate web component?
+### Why not using shadow DOM to create encapsulate web component logic?
 
-No shadow dom API has been used, we rely on a light dom to fulfill [our defined constraints](../README.md) (including SSR). 
-**TODO**
+While shadow DOM is a key part to enforce encapsulation (for markup structure (DOM tree), style (CSS) and behavior (JavaScript)), it comes with several limitations tied to its features:
+- Global styles cannot be applied making it difficult to cascade styles (style encapsulation could be done in a non standard way (eg. via CSS in JS, CSS Modules...))
+- The internal shadow DOM tree is inaccessible by third-parties and non web clients (the shadow DOM API must be emulated server side and/or prerender the page with a web client to allow server side rendering)
+- Event propagation is different inside and outside the shadow DOM (the event is retargeted outside to preserve shadow DOM encapsulation) and can be incompatible with some UI framework abstraction (such as React dealing with synthetic events)
+
+By keeping a light DOM (ie. using the plain old DOM instead of the shadow DOM tree), we can avoid shadow DOM limitations and fulfill [our defined constraints](../README.md) while still benefiting from the custom element API to handle attribute change management in an interoperable way.

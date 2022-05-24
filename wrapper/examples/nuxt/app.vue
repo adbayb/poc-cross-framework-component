@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { onMounted } from "vue"
-import { Button } from "@web-component/vue"
+import { Button } from "@wrapper/vue"
 
 export default {
   components: { Button },

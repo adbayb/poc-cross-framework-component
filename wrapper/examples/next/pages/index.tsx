@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Button, ButtonProps } from "@web-component/components";
+import { Button, ButtonProps } from "@wrapper/components";
 import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
 
 /*
 // An example of React HOC to create component with the `createCustomElement` adapter.
-// For showcasing purpose only: it's uneeded since `@web-component/components` library is built with React.
+// For showcasing purpose only: it's uneeded since `@wrapper/components` library is built with React.
 const createComponent = <Props extends Record<string, unknown>>(
 	Component: FunctionComponent,
 	tagName: string

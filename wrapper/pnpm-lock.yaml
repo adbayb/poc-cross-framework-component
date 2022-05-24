@@ -17,13 +17,13 @@ importers:
       '@types/node': 17.0.31
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.3
-      '@web-component/components': workspace:*
+      '@wrapper/components': workspace:*
       next: 12.1.6
       react: 18.1.0
       react-dom: 18.1.0
       typescript: 4.7.0-beta
     dependencies:
-      '@web-component/components': link:../../packages/components
+      '@wrapper/components': link:../../packages/components
       next: 12.1.6_ef5jwxihqo6n7gxfmzogljlgcm
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
@@ -35,15 +35,15 @@ importers:
 
   examples/nuxt:
     specifiers:
-      '@web-component/vue': workspace:*
+      '@wrapper/vue': workspace:*
       nuxt: 3.0.0-rc.3
     dependencies:
-      '@web-component/vue': link:../../packages/adapter-vue
+      '@wrapper/vue': link:../../packages/adapter-vue
       nuxt: 3.0.0-rc.3
 
   packages/adapter:
     specifiers:
-      '@web-component/components': workspace:*
+      '@wrapper/components': workspace:*
       microbundle: 0.15.0
       preact: 10.7.2
       preact-render-to-string: 5.2.0
@@ -51,7 +51,7 @@ importers:
       react-dom: npm:@preact/compat@17.0.3
       typescript: 4.7.0-beta
     devDependencies:
-      '@web-component/components': link:../components
+      '@wrapper/components': link:../components
       microbundle: 0.15.0
       preact: 10.7.2
       preact-render-to-string: 5.2.0_preact@10.7.2
@@ -61,11 +61,11 @@ importers:
 
   packages/adapter-vue:
     specifiers:
-      '@web-component/adapter': workspace:*
+      '@wrapper/adapter': workspace:*
       typescript: 4.7.0-beta
       vue: 3.2.33
     dependencies:
-      '@web-component/adapter': link:../adapter
+      '@wrapper/adapter': link:../adapter
     devDependencies:
       typescript: 4.7.0-beta
       vue: 3.2.33

@@ -10,7 +10,7 @@
 	"repository": {
 		"type": "git",
 		"url": "git@github.com:adbayb/poc-cross-framework-component.git",
-		"directory": "web-component/benchmark"
+		"directory": "primitive"
 	},
 	"license": "MIT",
 	"scripts": {

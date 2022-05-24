@@ -1,5 +1,5 @@
 {
-  "name": "@web-component/example-nuxt",
+  "name": "@wrapper/example-nuxt",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,6 @@
   },
   "dependencies": {
     "nuxt": "3.0.0-rc.3",
-    "@web-component/vue": "workspace:*"
+    "@wrapper/vue": "workspace:*"
   }
 }
