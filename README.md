@@ -12,16 +12,6 @@ This repository aims to experiment several approaches to implement cross framewo
 
 <br>
 
-## 🧪 Experimentations
-
-There're basically, at least, three ways to implement cross framework components:
-
-- [Web component](web-component): it consists of implementing a framework agnostic component using the Web components standard. To preserve the developer experience, several Web component friendly framework (Stencil.js, Preact with custom element interoperability layer...) are tested to implement the underlying web component logic and output to web components. **It relies on web standards**: while it can be future-proof, it can come with several challenges (eg. SEO: rendering web component is not possible natively server side (ie. without extra tool such as DOM emulation or headless browser for prerendering purposes) since the standard relies on web client APIs).
-- [Primitive](primitive): it consists of building frameworkless components (arbitrary called primitives) to manage core framework agnostic constraints and logic (such as accessibility, dom representation, styling...) and adapting them to the targetted framework through adapters to manage UI specific lifecycle and rendering concerns. **It doesn't rely on web standards but rather on framework standards** making easier to manage framework decisions and solutions (such as server-side rendering, ...). 
-- Reimplementing the whole component library per framework: out of scope since it doesn't match our constraints (ie. sharing core logic as much/needed as possible).
-
-<br>
-
 ## ✅ Constraints
 
 Each experimentation must tick following constraints:
@@ -34,10 +24,19 @@ Each experimentation must tick following constraints:
 
 <br>
 
-## TODO
+## 🧪 Experimentations
 
-- [ ] General: Add pros/cons section for all experimentations (when to use X experimentation instead of Y => shim can be a good match if there's an existing codebase and/or the library relies on core libraries that are framework dependent (such as react-aria for a11y requirements))
-- [ ] Web-component: Benchmark web-component integration vs vanilla react vs vanilla shadow dom
+Two approaches have been tested:
+
+- [Wrapper](wrapper): packages existing framework dependent components with a thin interoperability layer to create framework agnostic components consumable by any frontend stack. This layer acts as [a decorator](https://refactoring.guru/design-patterns/decorator) to generate standard custom elements with added superpowers (eg. adding server side rendering support by letting the underlying framework manages it). 
+This approach can be interesting to explore if we need to deal with the existing (ie. already developped components) or if the team wants to use (for developer experience concerns...) a specific UI framework.
+- [Primitive](primitive): is framework agnostic low-level building block to build high-level components without dealing with framework specificities. Each primitive acts as [an adapter](https://refactoring.guru/design-patterns/adapter) to hide/abstract framework dependent logic.
+This approach can be interesting to explore if constraints must be supported in an optimal way consumer side (eg. no extra size footprint...).
+
+Others have also been considered but are not suited to our defined constraints:
+
+- Implementing the component library using web standards only (web component): out of scope (ie. developer experience, server side support...). While it can be future-proof, it can come with several challenges (eg. SEO: rendering web component is not natively possible server side since the standard relies on web client APIs. By natively, we mean without introducing extra tool such as DOM emulation or headless browser for prerendering purposes).
+- Re-implementing the whole component library per framework: out of scope. We would like to share as much as possible the core logic.
 
 <br>
 
