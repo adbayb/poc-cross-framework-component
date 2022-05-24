@@ -1,7 +1,7 @@
 <br>
 <div align="center">
     <h1>🧪 With primitives</h1>
-    <strong>Experiment cross framework component implementation on top of shared framework agnostic logic</strong>
+    <strong>Experiment cross-framework component implementation on top of shared framework agnostic logic</strong>
 </div>
 <br>
 <br>

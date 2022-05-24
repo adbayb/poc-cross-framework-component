@@ -1,5 +1,5 @@
 import { defineComponent, h, onBeforeUpdate, reactive } from "vue";
-import { createCustomElement } from "@wrapper/adapter";
+import { createCustomElement } from "@wrapper/custom-elements";
 
 export const createComponent = <Props extends Record<string, unknown>>(
 	tagName: string,

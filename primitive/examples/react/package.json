@@ -1,5 +1,5 @@
 {
-	"name": "@primitive/example-react",
+	"name": "@example/react",
 	"private": true,
 	"source": "src/index.tsx",
 	"main": "dist/index.cjs.js",

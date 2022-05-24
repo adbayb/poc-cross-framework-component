@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button :variation="variation" :onPress="onPress">Hello world</Button>
+    <Button :variation="variation" :onPress="onPress">{{variation}}</Button>
   </div>
 </template>
 

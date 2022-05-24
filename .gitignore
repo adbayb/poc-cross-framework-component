@@ -107,3 +107,4 @@ dist
 www
 loader
 .rollup.cache
+.output
