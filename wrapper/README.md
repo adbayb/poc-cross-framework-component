@@ -1,7 +1,7 @@
 <br>
 <div align="center">
     <h1>🧪 With wrapper</h1>
-    <strong>Experiment cross-framework component implementation by wrapping framework dependent components</strong>
+    <strong>A top-down runtime approach for cross-framework component implementation</strong>
 </div>
 <br>
 <br>
